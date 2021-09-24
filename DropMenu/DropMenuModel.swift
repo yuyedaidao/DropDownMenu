@@ -14,4 +14,10 @@ public struct DropMenuModel {
     var image: UIImage?
     // icon的地址
     var icon: String?
+    
+    public init(title: String?, image: UIImage? = nil, icon: String? = nil) {
+        self.title = title
+        self.image = image
+        self.icon = icon
+    }
 }
