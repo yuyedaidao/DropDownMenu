@@ -1,5 +1,5 @@
 PODS:
-  - DropMenu (10.0.0):
+  - DropMenu (10.0.3):
     - Kingfisher (~> 6.0)
   - Kingfisher (6.3.1)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DropMenu: 19016ae0ba3574d962751f5cb2884f399a45e5cf
+  DropMenu: 3ad0d842eb13683909f838bef1112422b99a10e9
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
 
 PODFILE CHECKSUM: cad831741adec97102a226d96d6c2459988de326

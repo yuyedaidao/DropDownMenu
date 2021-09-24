@@ -171,7 +171,7 @@ public class DropDownMenuView: UIView {
         for obj in menuArray {
             let width = obj.title?.size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: Config.menuTitleFontSize)]).width
             var titleWidth = width ?? 0.0
-            if obj.image != nil {
+            if obj.image != nil || obj.icon != nil {
                 titleWidth += Config.menuContentMargin + Config.menuImageWidth
             }
            

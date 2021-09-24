@@ -37,7 +37,7 @@ class DropMenuCell: UITableViewCell {
                 if let image = menuModel.image {
                     menuImageView.image = image
                 } else if let icon = menuModel.icon {
-                    menuImageView.kf.setImage(with: URL(string: icon))
+                    menuImageView.kf.setImage(with: URL(string: icon), options: [.diskCacheExpiration(.never)])
                 }
                 menuImageView.frame = CGRect(x: Config.menuContentMargin, y: (self.bounds.size.height - Config.menuImageWidth)*0.5, width: Config.menuImageWidth, height: Config.menuImageWidth)
                 menuTitleLabel.frame = CGRect(x: Config.menuContentMargin * 2 + Config.menuImageWidth, y: 0, width: self.bounds.size.width - (Config.menuContentMargin * 3 + Config.menuImageWidth), height: self.bounds.size.height)
