@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name    = 'DropMenu'
-  s.version = '10.0.2'
+  s.version = '10.0.3'
   s.summary = '下拉选择视图、支持微信、支付宝等样式。自动计算最优显示位置、动画效果。'
   s.homepage  = 'https://github.com/song/DropMenu'
   s.license = 'MIT'
