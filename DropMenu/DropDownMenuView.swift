@@ -13,21 +13,21 @@ public typealias SelectionClosure = (Index, String) -> Void
 public class DropDownMenuView: UIView {
 
     // 蒙层背景color
-    var coverBgColor: UIColor? {
+    public var coverBgColor: UIColor? {
         didSet {
             guard let color = coverBgColor else { return }
             backgroundColor = color
         }
     }
     // 主样式color
-    var menuBgColor: UIColor? {
+    public var menuBgColor: UIColor? {
         didSet {
             guard let color = menuBgColor else { return }
             mTable.backgroundColor = color
         }
     }//= Config.DropMenuConfig.menuBgColor
     // 线条颜色
-    var lineColor = Config.MenuCellConfig.lineColor
+    public var lineColor = Config.MenuCellConfig.lineColor
     // cell高度
     public var menuCellHeight = Config.MenuCellConfig.menuCellHeight
     /**
@@ -76,15 +76,11 @@ public class DropDownMenuView: UIView {
     fileprivate lazy var mTable: UITableView = self.makeTableView()
     fileprivate var anchorRect = CGRect.zero
     
-    public class func pullDropDrownMenu(anchorView: UIView) -> DropDownMenuView {
-        return pullDropDrownMenu(anchorView: anchorView, titleArray: [])
+    public class func pullDropDrownMenu(titleArray:[String]) -> DropDownMenuView {
+        return pullDropDrownMenu(titleArray: titleArray, imageArray: [])
     }
 
-    public class func pullDropDrownMenu(anchorView: UIView, titleArray:[String]) -> DropDownMenuView {
-        return pullDropDrownMenu(anchorView: anchorView, titleArray: titleArray, imageArray: [])
-    }
-
-    public class func pullDropDrownMenu(anchorView: UIView, titleArray:[String], imageArray:[UIImage]) -> DropDownMenuView {
+    public class func pullDropDrownMenu(titleArray:[String], imageArray:[UIImage]) -> DropDownMenuView {
         //如果titleArray.count != imageArray.count 以 titeArray 为数据
         var menuArray = [DropMenuModel]()
         if titleArray.count != imageArray.count {
@@ -104,22 +100,24 @@ public class DropDownMenuView: UIView {
             }
         }
         
-        let menuView = pullDropDrownMenu(anchorView: anchorView, menuArray: menuArray)
+        let menuView = pullDropDrownMenu(menuArray: menuArray)
         return menuView
     }
 
-    public class func pullDropDrownMenu(anchorView: UIView, menuArray:[DropMenuModel]) -> DropDownMenuView {
-        let window = UIApplication.shared.delegate?.window!
+    public class func pullDropDrownMenu(menuArray:[DropMenuModel]) -> DropDownMenuView {
         let menuView = DropDownMenuView()
-        menuView.frame = UIScreen.main.bounds
-        window!.addSubview(menuView)
-        menuView.anchorRect = anchorView.convert(anchorView.bounds, to: window!)
         menuView.menuArray = menuArray
         menuView.menuStyle = .MenuDarkStyle
 //        menuView.refreshUI()
         return menuView
     }
     
+    public func show(_ anchorView: UIView) {
+        let window = UIApplication.shared.delegate?.window!
+        frame = UIScreen.main.bounds
+        anchorRect = anchorView.convert(anchorView.bounds, to: window!)
+        window!.addSubview(self)
+    }
     
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -158,7 +156,7 @@ public class DropDownMenuView: UIView {
 
     //-function
     private func animateRemoveView() {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             self.alpha = 0.0
             self.contentView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
             self.contentView.alpha = 0.0

@@ -1,6 +1,6 @@
 {
   "name": "DropMenu",
-  "version": "0.0.1",
+  "version": "10.0.0",
   "summary": "下拉选择视图、支持微信、支付宝等样式。自动计算最优显示位置、动画效果。",
   "homepage": "https://github.com/song/DropMenu",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "ios": "8.0"
   },
   "source": {
-    "git": "https://github.com/song/DropMenu",
-    "tag": "0.0.1"
+    "git": "https://github.com/yuyedaidao/DropDownMenu.git",
+    "tag": "10.0.0"
   },
   "source_files": [
     "DropMenu/*.{h,m}",
@@ -20,5 +20,10 @@
   ],
   "requires_arc": true,
   "swift_versions": "5.0",
+  "dependencies": {
+    "Kingfisher": [
+      "~> 6.0"
+    ]
+  },
   "swift_version": "5.0"
 }

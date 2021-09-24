@@ -8,8 +8,10 @@
 import Foundation
 
 public struct DropMenuModel {
-    //文字
+    // 文字
     var title: String?
-    //图片
+    // 图片
     var image: UIImage?
+    // icon的地址
+    var icon: String?
 }

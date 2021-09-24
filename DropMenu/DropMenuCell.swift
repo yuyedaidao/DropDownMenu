@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DropMenuCell: UITableViewCell {
     
@@ -31,12 +32,16 @@ class DropMenuCell: UITableViewCell {
     var menuModel: DropMenuModel? {
         didSet {
             guard let menuModel = menuModel else { return }
-            if (menuModel.image != nil) {
+            if (menuModel.image != nil || menuModel.icon != nil) {
                 menuImageView.isHidden = false
-                menuImageView.image = menuModel.image
+                if let image = menuModel.image {
+                    menuImageView.image = image
+                } else if let icon = menuModel.icon {
+                    menuImageView.kf.setImage(with: URL(string: icon))
+                }
                 menuImageView.frame = CGRect(x: Config.menuContentMargin, y: (self.bounds.size.height - Config.menuImageWidth)*0.5, width: Config.menuImageWidth, height: Config.menuImageWidth)
                 menuTitleLabel.frame = CGRect(x: Config.menuContentMargin * 2 + Config.menuImageWidth, y: 0, width: self.bounds.size.width - (Config.menuContentMargin * 3 + Config.menuImageWidth), height: self.bounds.size.height)
-            }else {
+            } else {
                 menuImageView.isHidden = true
                 menuTitleLabel.frame = CGRect(x: Config.menuContentMargin, y: 0, width: self.bounds.size.width - Config.menuContentMargin * 2, height: self.bounds.size.height)
             }

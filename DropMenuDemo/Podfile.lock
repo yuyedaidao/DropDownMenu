@@ -1,16 +1,23 @@
 PODS:
-  - DropMenu (0.0.1)
+  - DropMenu (10.0.0):
+    - Kingfisher (~> 6.0)
+  - Kingfisher (6.3.1)
 
 DEPENDENCIES:
   - DropMenu (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
 
 EXTERNAL SOURCES:
   DropMenu:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DropMenu: 056d7d24a849821ac67f5e4ec2f790abed8675f3
+  DropMenu: 19016ae0ba3574d962751f5cb2884f399a45e5cf
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
 
 PODFILE CHECKSUM: cad831741adec97102a226d96d6c2459988de326
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.2
