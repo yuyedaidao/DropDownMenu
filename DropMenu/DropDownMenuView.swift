@@ -116,6 +116,7 @@ public class DropDownMenuView: UIView {
         let window = UIApplication.shared.delegate?.window!
         frame = UIScreen.main.bounds
         anchorRect = anchorView.convert(anchorView.bounds, to: window!)
+        refreshUI()
         window!.addSubview(self)
     }
     
