@@ -244,7 +244,6 @@ public class DropDownMenuView: UIView {
         contentView.frame = CGRect(x: x, y: y, width: w, height: h + triangleHeight)
         drawTriangle()
         //动画锚点
-        contentView.backgroundColor = UIColor.red
         contentView.layer.position = layerPosition
         contentView.layer.anchorPoint = layerAnchor
     }
