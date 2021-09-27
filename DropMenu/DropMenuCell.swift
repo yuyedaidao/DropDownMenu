@@ -119,8 +119,8 @@ class DropMenuCell: UITableViewCell {
         lineLayer.frame = bounds
         lineLayer.lineWidth = 0.5
         let sepline = UIBezierPath()
-        sepline.move(to: CGPoint(x: Config.menuContentMargin, y: bounds.size.height - lineLayer.lineWidth))
-        sepline.addLine(to: CGPoint(x: bounds.size.width - Config.menuContentMargin, y: bounds.size.height - lineLayer.lineWidth))
+        sepline.move(to: CGPoint(x: Config.MenuCellConfig.menuLineLeftMargin, y: bounds.size.height - lineLayer.lineWidth))
+        sepline.addLine(to: CGPoint(x: bounds.size.width - Config.MenuCellConfig.menuLineLeftMargin - Config.MenuCellConfig.menuLineRightMargin, y: bounds.size.height - lineLayer.lineWidth))
         lineLayer.path = sepline.cgPath
         layer.addSublayer(lineLayer)
         self.lineLayer = lineLayer

@@ -12,18 +12,19 @@ public enum DropMenuStyle {
 }
 
 public struct Config {
-    public static var menuContentMargin:CGFloat = 15.0 //默认文本图片边距
-    public static var menuImageWidth:CGFloat = 15.0 //默认图片最小尺寸
-    public static var menuBorderMinMargin:CGFloat = 15.0 //默认下拉框边界围栏
-    public static var menuTitleFontSize:CGFloat = 15.0 //默认文本字体大小
-    
+    public static var menuContentMargin:CGFloat = 20.0 //默认文本图片边距
+    public static var menuImageWidth:CGFloat = 20.0 //默认图片最小尺寸
+    public static var menuBorderMinMargin:CGFloat = 8.0 //默认下拉框边界围栏
+    public static var menuTitleFontSize:CGFloat = 16.0 //默认文本字体大小
     public static var initialMenuStyle: DropMenuStyle?
 
     
     public struct MenuCellConfig {        
         public static var lineColor = UIColor.lightGray
-        public static var menuCellHeight:CGFloat = 50.0
-        public static var menuMaxHeight:CGFloat = 5 * 50.0
+        public static var menuCellHeight:CGFloat = 55.0
+        public static var menuMaxHeight:CGFloat = 5 * 55.0
+        public static var menuLineLeftMargin: CGFloat = 0
+        public static var menuLineRightMargin: CGFloat = 0
     }
     
     public struct DropMenuConfig {

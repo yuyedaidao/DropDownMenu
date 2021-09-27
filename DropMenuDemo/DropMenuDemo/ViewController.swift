@@ -41,11 +41,12 @@ class ViewController: UIViewController {
     @objc func addClicked(_ sender: UIButton) {
         print("addClicked \(sender.tag)")
         let titleArray = ["2020年02月","2020年03月","2020年04月","2020年05月"]
-        let menu = DropDownMenuView.pullDropDrownMenu(anchorView: sender, titleArray: titleArray)
+        let menu = DropDownMenuView.pullDropDrownMenu(titleArray: titleArray)
         menu.selectionAction = { (index: Index, str: String) -> (Void) in
             let str = "\(index)" + " " + str
             print(str)
         }
+        menu.show(sender)
 
     }
 

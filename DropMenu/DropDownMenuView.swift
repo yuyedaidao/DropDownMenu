@@ -44,6 +44,9 @@ public class DropDownMenuView: UIView {
     *  调整使下拉优先 当向下偏转屏幕距离足够，优先向下偏转
     */
     public var adjustPullDown = Config.DropMenuConfig.adjustPullDown
+    
+    /// 与坐标控件的距离
+    public var spacingWithAnchor: CGFloat = 8
     /**
     *  pullMenu样式
     */
@@ -228,12 +231,12 @@ public class DropDownMenuView: UIView {
         //居上：下拉
         //居下：上拉
         if anchorRect.midY < offsetCenterY {
-            y = anchorRect.maxY
+            y = anchorRect.maxY + spacingWithAnchor
             mTable.frame = CGRect(x: 0.0, y: triangleHeight, width: w, height: h)
             layerAnchor.y = 0.0
             layerPosition.y = y
         }else {
-            y = anchorRect.minY - triangleHeight - h
+            y = anchorRect.minY - triangleHeight - h - spacingWithAnchor
             mTable.frame = CGRect(x: 0.0, y: 0.0, width: w, height: h)
             layerAnchor.y = 1.0
             layerPosition.y = y + h
@@ -241,6 +244,7 @@ public class DropDownMenuView: UIView {
         contentView.frame = CGRect(x: x, y: y, width: w, height: h + triangleHeight)
         drawTriangle()
         //动画锚点
+        contentView.backgroundColor = UIColor.red
         contentView.layer.position = layerPosition
         contentView.layer.anchorPoint = layerAnchor
     }

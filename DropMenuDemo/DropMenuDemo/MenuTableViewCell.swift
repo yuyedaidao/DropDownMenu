@@ -31,8 +31,9 @@ class MenuTableViewCell: UITableViewCell {
         let image4 = UIImage(named: "ap_qrcode")!
         let imageArray = [image1,image2,image3,image4]
         Config.MenuCellConfig.menuCellHeight = 50
-        let dropMenu = DropDownMenuView.pullDropDrownMenu(anchorView: sender, titleArray: titleArray, imageArray: imageArray)
+        let dropMenu = DropDownMenuView.pullDropDrownMenu(titleArray: titleArray, imageArray: imageArray)
         dropMenu.menuStyle = .MenuLightStyle
+        dropMenu.show(sender)
     }
     
     @IBAction func actionWechatBtn(_ sender: UIButton) {
@@ -44,14 +45,16 @@ class MenuTableViewCell: UITableViewCell {
         let image4 = UIImage(named: "contacts_add_scan_30x30_")!
         let imageArray = [image1,image2,image3,image4]
         Config.MenuCellConfig.menuCellHeight = 50
-        let dropMenu = DropDownMenuView.pullDropDrownMenu(anchorView: sender, titleArray: titleArray, imageArray: imageArray)
+        let dropMenu = DropDownMenuView.pullDropDrownMenu( titleArray: titleArray, imageArray: imageArray)
+        dropMenu.show(sender)
     }
     
     @IBAction func actionEditBtn(_ sender: UIButton) {
         print("actionEditBtn")
         let titleArray = ["编辑","删除"]
          Config.MenuCellConfig.menuCellHeight = 25
-        let menu = DropDownMenuView.pullDropDrownMenu(anchorView: sender, titleArray: titleArray)
+        let menu = DropDownMenuView.pullDropDrownMenu(titleArray: titleArray)
+        menu.show(sender)
 //        menu.menuCellHeight = 25
        
     }
