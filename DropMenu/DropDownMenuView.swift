@@ -64,7 +64,7 @@ public class DropDownMenuView: UIView {
     *  click
     */
     public var selectionAction: SelectionClosure?
-    
+    private let triangleLayer = CAShapeLayer()
     // 文字
     fileprivate var titleArray = [String]()
     // 图片
@@ -280,7 +280,6 @@ public class DropDownMenuView: UIView {
             q = CGPoint(x: x - triangleHeight, y: y - triangleHeight)
         }
         
-        let triangleLayer = CAShapeLayer()
         triangleLayer.frame = contentView.bounds
         triangleLayer.fillColor = menuBgColor?.cgColor
         let bezier = UIBezierPath()
@@ -289,7 +288,9 @@ public class DropDownMenuView: UIView {
         bezier.addLine(to: q)
         bezier.lineJoinStyle = .round
         triangleLayer.path = bezier.cgPath
-        contentView.layer.addSublayer(triangleLayer)
+        if triangleLayer.superlayer == nil {
+            contentView.layer.addSublayer(triangleLayer)
+        }
     
     }
     
